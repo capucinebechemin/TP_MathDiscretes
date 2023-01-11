@@ -4,17 +4,14 @@ grammar PCF;
 
 program : term EOF ;
 term : LIT                                   # Lit
+     | term OP term                          # BinOp
      | '(' term ')'                          # Par
-     | term OPHP term                        # BinOp
-     | term OPLP term                        # BinOp
-     | term OP term                        # BinOp // en attendant d'avoir les operateurs prioritaires en place
      | 'ifz' term 'then' term 'else' term    # Cond
      ;
 
 // règles lexicales
 
-OPHP  : '*' | '/' ;
-OPLP  : '+' | '-' ;
+OP  : '+' | '-' | '*' | '/' ;
 LIT : '0' | [1-9][0-9]* ;
 WS : [ \t\n\r]+ -> channel(HIDDEN) ;
 LINE_COMMENT : '//' ~'\n'* '\n' -> channel(HIDDEN) ;
