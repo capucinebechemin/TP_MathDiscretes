@@ -2,7 +2,6 @@ package ast;
 
 import interp.Env;
 import interp.IntVal;
-import interp.Value;
 
 public class Cond extends Term {
     public Term test;
@@ -15,7 +14,7 @@ public class Cond extends Term {
         this.branchFalse = branchFalse;
     }
     @Override
-    public Value interp(Env e) {
+    public IntVal interp(Env e) {
         return new IntVal(1);
     }
 }

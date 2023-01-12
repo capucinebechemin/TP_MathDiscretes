@@ -2,7 +2,6 @@ package ast;
 
 import interp.Env;
 import interp.IntVal;
-import interp.Value;
 
 public class Lit extends Term {
     public int value;
@@ -11,7 +10,7 @@ public class Lit extends Term {
         this.value = value;
     }
     @Override
-    public Value interp(Env e) {
-        return new IntVal(1);
+    public IntVal interp(Env e) {
+        return new IntVal(this.value);
     }
 }

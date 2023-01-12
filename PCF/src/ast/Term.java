@@ -1,8 +1,8 @@
 package ast;
 
 import interp.Env;
-import interp.Value;
+import interp.IntVal;
 
 public abstract class Term extends AST {
-    public abstract Value interp(Env e);
+    public abstract IntVal interp(Env e);
 }

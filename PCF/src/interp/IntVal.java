@@ -6,4 +6,9 @@ public class IntVal extends Value{
     public IntVal(int val) {
         this.val = val;
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(this.val);
+    }
 }
