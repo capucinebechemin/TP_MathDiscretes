@@ -8,7 +8,6 @@ OPLP=7
 LIT=8
 WS=9
 LINE_COMMENT=10
-OP=11
 '('=1
 ')'=2
 'ifz'=3

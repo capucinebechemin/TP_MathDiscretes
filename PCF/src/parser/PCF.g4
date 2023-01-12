@@ -7,7 +7,6 @@ term : LIT                                   # Lit
      | '(' term ')'                          # Par
      | term OPHP term                        # BinOp
      | term OPLP term                        # BinOp
-     | term OP term                        # BinOp // en attendant d'avoir les operateurs prioritaires en place
      | 'ifz' term 'then' term 'else' term    # Cond
      ;
 

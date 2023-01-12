@@ -1,5 +1,9 @@
 package ast;
 
+import interp.Env;
+import interp.IntVal;
+import interp.Value;
+
 public class BinOp extends Term {
     public OP op;
     public Term term1;
@@ -8,5 +12,10 @@ public class BinOp extends Term {
         this.op = op;
         this.term1 = term1;
         this.term2 = term2;
+    }
+
+    @Override
+    public Value interp(Env e) {
+        return new IntVal(1);
     }
 }
