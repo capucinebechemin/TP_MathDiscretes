@@ -2,8 +2,8 @@ package ast;
 
 import interp.Env;
 import interp.Value;
-
-import java.util.Optional;
+import typer.Type;
+import typer.Var;
 
 public class VarEnter extends Term {
     String varName;
@@ -15,5 +15,10 @@ public class VarEnter extends Term {
 
     public VarEnter(String varName) {
         this.varName = varName;
+    }
+
+    @Override
+    public Type typer(Env<Type> e) {
+        return e.lookup(varName).orElse(new Var()).deref();
     }
 }

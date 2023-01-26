@@ -2,6 +2,7 @@ package ast;
 
 import interp.Env;
 import interp.Value;
+import typer.Type;
 
 public class VarLet extends Term{
     String name;
@@ -25,8 +26,12 @@ public class VarLet extends Term{
     @Override
     public Value interp(Env<Value> e) {
         e = e.add(name,value.interp(e));
-        System.out.println(name);
-        System.out.println(value.interp(e));
         return expression.interp(e);
+    }
+
+    @Override
+    public Type typer(Env<Type> e) {
+        e = e.add(name,value.typer(e));
+        return expression.typer(e);
     }
 }

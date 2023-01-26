@@ -3,8 +3,9 @@ package ast;
 import interp.Env;
 import interp.IntVal;
 import interp.Value;
-
-import java.util.Optional;
+import typer.Atom;
+import typer.Type;
+import typer.TypeError;
 
 public class Cond extends Term {
     public Term test;
@@ -18,10 +19,24 @@ public class Cond extends Term {
     }
     @Override
     public Value interp(Env<Value> e) {
-        if (((IntVal) test.interp(e)).val != 0) {
+        if (((IntVal) test.interp(e)).val == 0) {
             return branchTrue.interp(e);
         } else {
             return branchFalse.interp(e);
         }
+    }
+
+    @Override
+    public Type typer(Env<Type> e) {
+        Type test = this.test.typer(e).deref();
+        Type trueBranch = branchTrue.typer(e).deref();
+        Type falseBranch = branchFalse.typer(e).deref();
+        if (!test.equals(Atom.INT)) {
+            throw new TypeError("Cannot infer type if testBranch isn't an integer");
+        }
+        if(trueBranch != falseBranch) {
+            throw new TypeError("Cannot infer type from different branch type");
+        }
+        return trueBranch;
     }
 }

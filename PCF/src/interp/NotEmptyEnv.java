@@ -4,9 +4,9 @@ import java.util.Optional;
 
 public class NotEmptyEnv<T> extends Env<T>{
     private final Env<T> previous;
-    private final Binding last;
+    private final Binding<T> last;
 
-    public NotEmptyEnv(Env<T> previous, Binding last) {
+    public NotEmptyEnv(Env<T> previous, Binding<T> last) {
         this.previous = previous;
         this.last = last;
     }
@@ -17,7 +17,7 @@ public class NotEmptyEnv<T> extends Env<T>{
     }
 
     @Override
-    public Binding last() {
+    public Binding<T> last() {
         return last;
     }
 
@@ -27,7 +27,7 @@ public class NotEmptyEnv<T> extends Env<T>{
     }
 
     @Override
-    public Optional<Value> lookup(String id) {
+    public Optional<T> lookup(String id) {
         return this.last.getName().equals(id) ? Optional.of(this.last.getValue()) : this.previous().lookup(id);
     }
 }

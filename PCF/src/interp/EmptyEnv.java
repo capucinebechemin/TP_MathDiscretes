@@ -12,7 +12,7 @@ public class EmptyEnv<T> extends Env<T>{
     }
 
     @Override
-    public Binding last() {
+    public Binding<T> last() {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class EmptyEnv<T> extends Env<T>{
     }
 
     @Override
-    public Optional<Value> lookup(String id) {
+    public Optional<T> lookup(String id) {
         return Optional.empty();
     }
 }

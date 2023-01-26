@@ -1,10 +1,10 @@
 package interp;
 
-public class Binding {
+public class Binding<T> {
     public String name;
-    public Value value;
+    public T value;
 
-    public Binding(String name, Value value) {
+    public Binding(String name, T value) {
         this.name = name;
         this.value = value;
     }
@@ -13,7 +13,7 @@ public class Binding {
         return this.name;
     }
 
-    public Value getValue() {
+    public T getValue() {
         return this.value;
     }
 }

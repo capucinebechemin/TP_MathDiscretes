@@ -3,8 +3,8 @@ package ast;
 import interp.Env;
 import interp.IntVal;
 import interp.Value;
-
-import java.util.Optional;
+import typer.Type;
+import typer.TypeError;
 
 public class BinOp extends Term {
     public OP op;
@@ -25,5 +25,14 @@ public class BinOp extends Term {
             case TIMES -> new IntVal(((IntVal) term1.interp(e)).val * ((IntVal) term2.interp(e)).val);
             default          -> throw new IllegalArgumentException("Unexpected operator: " + op);
         };
+    }
+
+    @Override
+    public Type typer(Env<Type> e) {
+        Type type = term1.typer(e);
+        if(!type.unify(term2.typer(e))) {
+            throw new TypeError(String.format("Couldn't unify %s and %s", term1.toString(), term2.toString()));
+        }
+        return type;
     }
 }
