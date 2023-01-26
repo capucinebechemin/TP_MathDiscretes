@@ -2,6 +2,9 @@ package interp;
 
 import java.util.Optional;
 
+/**
+ * Classe abstraite d'un environnement
+ * */
 public abstract class Env<T> {
     public abstract boolean isEmpty();
     // last() returns the last binding added to the environment

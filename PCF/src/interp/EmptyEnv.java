@@ -2,6 +2,9 @@ package interp;
 
 import java.util.Optional;
 
+/**
+ * Classe d'un environnement vide
+ * */
 public class EmptyEnv<T> extends Env<T>{
     public EmptyEnv() {
     }

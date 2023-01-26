@@ -1,7 +1,9 @@
 package ast;
 
 import java.lang.reflect.Field;
-
+/**
+ * Classe abstraite représentant l'Abstract Syntax Tree, L'Abre syntaxique
+ * */
 public abstract class AST {
     @Override public String toString() {
         // retrieve class of node

@@ -1,5 +1,8 @@
 package interp;
 
+/**
+ * Classe d'une valeur de type entière
+ * */
 public class IntVal extends Value{
     public int val;
 

@@ -2,6 +2,9 @@ package interp;
 
 import java.util.Optional;
 
+/**
+ * Classe d'un environnement non vide
+ * */
 public class NotEmptyEnv<T> extends Env<T>{
     private final Env<T> previous;
     private final Binding<T> last;

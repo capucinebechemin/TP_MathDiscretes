@@ -3,15 +3,20 @@ package interp;
 import ast.VarEnter;
 import ast.Term;
 
+/**
+ * Classe qui gère l'ensemble des éléments
+ * permettant d'obtenir le resultat d'une fonction
+ * dans un environnement avec un certain argument
+ * */
 public final class Closure extends Value {
     Term function;
     VarEnter argument;
-    Env<Value> blockEnv;
+    Env<Value> env;
 
-    public Closure(VarEnter argument, Term function, Env<Value> blockEnv) {
+    public Closure(VarEnter argument, Term function, Env<Value> env) {
         this.argument = argument;
         this.function = function;
-        this.blockEnv = blockEnv;
+        this.env = env;
     }
 
     public Term getFunction() {
@@ -23,18 +28,18 @@ public final class Closure extends Value {
 
     @Override
     public String toString() {
-        return "Closure{" +
-                "\n    function=" + function +
-                ",\n    argument=" + argument +
-                ",\n    blockEnv=" + blockEnv +
-                "\n}";
+        return "Closure ->" +
+                "\n function : " + function +
+                "\n argument : " + argument +
+                "\n env : " + env +
+                "\n";
     }
 
-    public Env<Value> getBlockEnv() {
-        return blockEnv;
+    public Env<Value> getEnv() {
+        return env;
     }
 
-    public void setBlockEnv(Env<Value> blockEnv) {
-        this.blockEnv = blockEnv;
+    public void setEnv(Env<Value> env) {
+        this.env = env;
     }
 }

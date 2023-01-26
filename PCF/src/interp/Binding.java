@@ -1,5 +1,8 @@
 package interp;
 
+/**
+ * Classe permettant d'associé un nom à une valeur
+ * */
 public class Binding<T> {
     public String name;
     public T value;
