@@ -2,6 +2,9 @@ package ast;
 
 import interp.Env;
 import interp.IntVal;
+import interp.Value;
+
+import java.util.Optional;
 
 public class Cond extends Term {
     public Term test;
@@ -14,7 +17,11 @@ public class Cond extends Term {
         this.branchFalse = branchFalse;
     }
     @Override
-    public IntVal interp(Env e) {
-        return new IntVal(1);
+    public Value interp(Env<Value> e) {
+        if (((IntVal) test.interp(e)).val != 0) {
+            return branchTrue.interp(e);
+        } else {
+            return branchFalse.interp(e);
+        }
     }
 }

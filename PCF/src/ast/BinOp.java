@@ -2,6 +2,9 @@ package ast;
 
 import interp.Env;
 import interp.IntVal;
+import interp.Value;
+
+import java.util.Optional;
 
 public class BinOp extends Term {
     public OP op;
@@ -14,12 +17,12 @@ public class BinOp extends Term {
     }
 
     @Override
-    public IntVal interp(Env e) {
+    public Value interp(Env<Value> e) {
         return switch (op) {
-            case PLUS ->  new IntVal(term1.interp(e).val+term2.interp(e).val);
-            case MINUS ->  new IntVal(term1.interp(e).val-term2.interp(e).val);
-            case TIMES ->  new IntVal(term1.interp(e).val*term2.interp(e).val);
-            case DIVIDE ->  new IntVal(term1.interp(e).val/term2.interp(e).val);
+            case PLUS -> new IntVal(((IntVal) term1.interp(e)).val + ((IntVal) term2.interp(e)).val);
+            case MINUS -> new IntVal(((IntVal) term1.interp(e)).val - ((IntVal) term2.interp(e)).val);
+            case DIVIDE -> new IntVal(((IntVal) term1.interp(e)).val / ((IntVal) term2.interp(e)).val);
+            case TIMES -> new IntVal(((IntVal) term1.interp(e)).val * ((IntVal) term2.interp(e)).val);
             default          -> throw new IllegalArgumentException("Unexpected operator: " + op);
         };
     }

@@ -4,14 +4,16 @@ grammar PCF;
 
 program : term EOF ;
 term : LIT                                   # Lit
+     | VAR                                   # VarEnter
      | '(' term ')'                          # Par
      | term OPHP term                        # BinOp
      | term OPLP term                        # BinOp
      | 'ifz' term 'then' term 'else' term    # Cond
+     | 'let' VAR '=' term 'in' term          # VarLet
      ;
 
 // règles lexicales
-
+VAR : [a-zA-Z]+;
 OPHP  : '*' | '/' ;
 OPLP  : '+' | '-' ;
 LIT : '0' | [1-9][0-9]* ;
