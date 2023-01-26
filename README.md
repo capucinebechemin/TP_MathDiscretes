@@ -26,26 +26,28 @@
  TP3 Noir - PAS FAIT   
  TP3 Noir - PAS FAIT  
 
-**Tous les TPs terminés fonctionnent correctement et répondent aux egixenges ennoncées dans le PDF**
+**Tous les TPs terminés fonctionnent correctement et répondent aux exigences ennoncées dans le PDF**
 
 ## Tests
 
 >En se basant sur la liste que vous nous avez fournis par mail le vendredi 20 janvier 2023, on arrive à la conclusion suivante : 
 
 * PCF Vert :
-  * Test 1, 2, 3, 4, 5, 6, 7, 8 : OK
-  * Test 9 : erreur
+  * Test 1, 2, 3, 4, 5, 6, 7, 8, 9 : OK
 <br>
 <br>
 * PCF Bleu :
- * Test 1, 2, 3, 4, 5, 6, 7, 8 : OK
- * Test 9 : erreur
+  * Test 1, 2, 3, 4, 5, 6, 7, 8 : OK
+  * Test 9 : erreur
+
+Nous n'avons pas réussi à faire deux environnements qui se comprennent. La variable Y est indiquée comme non déclarée.
 <br>
 <br>
 * PCF Rouge :
-* Test 1, 2, 3, 4, 5, 6, 7 : OK
-* Test 8 : erreur
+  * Test 1, 2, 3, 4, 5, 6, 7 : OK
+  * Test 8 : erreur
 
-## Ressource externes
+Nous n'avons pas compris d'où provenait l'erreur
+## Ressources externes
 
 > YouTube, Cours théorique du module (Poly)
